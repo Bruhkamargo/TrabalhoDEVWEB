@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./cadastro.css">
+    <link rel="stylesheet" href="../index.css">
+    <title>Cadastro</title>
+</head>
+
+<body>
+    <div class="BemVindoDiv">
+        <h1>Cadastro</h1>
+        <span class="Line"></span>
+        <form action="" class="Formulario">
+            <label for="Nome">Seu Nome:
+                <input id="CadNome" type="text" name="Nome" placeholder="Nome"></label>
+            <label for="Email">Seu E-mail:
+                <input id="CadEmail" type="text" name="Email" placeholder="Exemplo@Email.com"></label>
+            <label for="Senha">Sua Senha:
+                <input id="CadSenha" type="text" name="Senha" placeholder="ex: 1234"></label>
+
+            <button onclick="SaveCadastro()" class="BtnBemVindoDiv centralizado">Cadastrar</button>
+        </form>
+        <div class="FooterDiv">
+            <form action="../index.html">
+                <button id="Btn02" class="BtnBemVindoDiv">Retornar</button>
+            </form>
+            <span>
+                <p>Já tem conta? </p>
+                <form action="#">
+                    <button onclick="teste()">ir para o Login</button>
+                </form>
+            </span>
+        </div>
+
+    </div>
+    <script src="../script.js"></script>
+</body>
+
+</html>
