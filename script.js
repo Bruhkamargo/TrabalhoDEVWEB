@@ -2,12 +2,13 @@
 Btn01.addEventListener('click', () => {
     alert()
 })
+*/
 
 const Btn02 = document.getElementById("Btn02")
 Btn02.addEventListener('click', () => {
-    alert()
+    window.location.href = "../index.html"
 })
-*/
+
 function SaveCadastro() {
     var JsonCadastro = {
         "Nome": document.getElementById('CadNome').value,

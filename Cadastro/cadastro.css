@@ -10,3 +10,55 @@ label {
     display: flex;
     justify-content: space-around;
 }
+
+.CadastroDiv {
+    background-color: white;
+    display: flex;
+    height: 50%;
+    width: 60%;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 2px 2px 4px black;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+@media only screen and (max-device-width: 500px) {
+    .CadastroDiv {
+        width: 100%;
+        height: 400px;
+    }
+}
+
+@media screen and (max-height: 600px) {
+    body {
+        overflow-y: auto;
+    }
+    .CadastroDiv {
+        height: 300px;
+    }
+
+}
+.FooterDiv {
+    background: #607D8B;
+    width: 100%;
+    display: flex;
+    border-radius: 0 0 10px 10px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.FooterDiv span {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.BtnFooterDiv {
+    border: none;
+    margin-left: 5px;
+    border-radius: 0 10px;
+    box-shadow: 2px 2px 4px black;
+}
