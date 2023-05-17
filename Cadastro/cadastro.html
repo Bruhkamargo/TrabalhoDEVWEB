@@ -14,24 +14,35 @@
     <div class="CadastroDiv">
         <h1>Cadastro</h1>
         <span class="Line"></span>
-        <form action="" class="Formulario">
+        <div class="Formulario">
             <label for="Nome">Seu Nome:
-                <input id="CadNome" type="text" name="Nome" placeholder="Nome"></label>
+                <input id="CadNome" type="text" name="Nome" pattern="[A-Za-z]{1,150}" placeholder="Nome"></label>
             <label for="Email">Seu E-mail:
-                <input id="CadEmail" type="text" name="Email" placeholder="Exemplo@Email.com"></label>
+                <input id="CadEmail" type="text" name="Email" onblur="ValidadorEmail('CadEmail')" placeholder="Exemplo@Email.com"></label>
             <label for="Senha">Sua Senha:
-                <input id="CadSenha" type="text" name="Senha" placeholder="ex: 1234"></label>
+                <input id="CadSenha" type="text" name="Senha" placeholder="ex: 1234" minlength="4" maxlength="10"></label>
 
-            <button onclick="SaveCadastro()" class="BtnBemVindoDiv centralizado">Cadastrar</button>
-        </form>
+            <button onclick="ValidadorCVCadastros()" class="BtnBemVindoDiv centralizado">Cadastrar</button>
+        </div>
         <div class="FooterDiv">
-                <button id="Btn02" class="BtnFooterDiv">Retornar</button>
-                <p>Já tem conta? </p>
-                <button class="BtnFooterDiv" onclick="teste()">ir para o Login</button>
+            <button id="Btn02" class="BtnFooterDiv">Retornar</button>
+            <p>Já tem conta? </p>
+            <button id="Btn03" class="BtnFooterDiv">ir para o Login</button>
         </div>
 
     </div>
     <script src="../script.js"></script>
+    <script>
+        
+        const Btn02 = document.getElementById("Btn02");
+        Btn02.addEventListener('click', () => {
+            window.location.href = "../index.html";
+        });
+        const Btn03 = document.getElementById("Btn03");
+        Btn03.addEventListener('click', () => {
+            window.location.href = "../login/login.html";
+        });
+    </script>
 </body>
 
 </html>

@@ -14,29 +14,48 @@
 </head>
 
 <body>
-    <div class="BemVindoDiv">
+    <div class="LoginDiv">
         <h1>Login</h1>
         <span class="Line"></span>
-        <form action="" class="Formulario">
+        <div class="Formulario">
             <label for="Email">Seu E-mail:
-                <input type="text" name="Email" id='EmailLogin' placeholder="Exemplo@Email.com"></label>
+                <input type="text" name="Email" id='EmailLogin' onblur="ValidadorEmail('EmailLogin')" placeholder="Exemplo@Email.com">
+            </label>
 
             <label for="Senha">Sua Senha:
-                <input type="password" name="Senha" id="SenhaLogin" placeholder="ex: 1234"></label>
+                <input type="password" name="Senha" id="SenhaLogin" placeholder="ex: 1234" minlength="4" maxlength="10">
+            </label>
+            <label>
+                <input type="checkbox" name="" id="SeePassword"> Mostrar Senha
+            </label>
 
-            <label><input type="checkbox" name="" id="">Manter-me Logado</label>
 
-
-            <button class="BtnBemVindoDiv centralizado">Entrar</button>
-        </form>
+            <button class="BtnBemVindoDiv centralizado" onclick="ValidadorCampoVazio()">Entrar</button>
+        </div>
         <div class="FooterDiv">
-            <button id="Btn02" class="BtnBemVindoDiv">Retornar</button>
             <p>Ainda não tem conta?</p>
-            <button onclick="">Cadastre-se</button>
+            <button id="BtnCadastro" class="BtnFooterDiv">Cadastre-se</button>
             </span>
         </div>
 
     </div>
+    <script src="../script.js"></script>
+    <script>
+
+        const SeePassword = document.getElementById('SeePassword');
+        SeePassword.addEventListener('click', () => {
+            let Pass = document.getElementById('SenhaLogin');
+            if (Pass.getAttribute('type') == "password") {
+                Pass.setAttribute('type', 'text')
+            } else {
+                Pass.setAttribute('type', 'password')
+            }
+        })
+        const BtnCadastro = document.getElementById("BtnCadastro");
+        BtnCadastro.addEventListener('click', () => {
+            window.location.href = "../Cadastro/cadastro.html"
+        })
+    </script>
 </body>
 
 </html>
