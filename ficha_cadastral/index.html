@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Formulário</title>
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+  <form id="myForm">
+    <div class="form-group">
+      <label for="name">Nome:</label>
+      <input type="text" id="name" name="name" required>
+    </div>
+    
+    <div class="form-group">
+      <label for="rg">RG:</label>
+      <input type="text" id="rg" name="rg" required>
+    </div>
+    
+    <div class="form-group">
+      <label for="cpf">CPF:</label>
+      <input type="text" id="cpf" name="cpf" required>
+    </div>
+    
+    <div class="form-group">
+      <label for="endereço">Endereço:</label>
+      <input type="text" id="endereço" name="endereço" required>
+    </div>
+    
+    <div class="form-group">
+      <label for="sexo">Sexo:</label>
+      <select id="sexo" name="sexo" required>
+        <option value="">Selecione</option>
+        <option value="masculino">Masculino</option>
+        <option value="feminino">Feminino</option>
+      </select>
+    </div>
+    
+    <div class="form-group">
+      <label for="nascimento">Data de Nascimento:</label>
+      <input type="date" id="nascimento" name="nascimento" required>
+    </div>
+    
+    <div class="form-group">
+      <label for="estadocivil">Situação Civil:</label>
+      <select id="estadocivil" name="estadocivil" required>
+        <option value="">Selecione</option>
+        <option value="solteiro">Solteiro</option>
+        <option value="casado">Casado</option>
+        <option value="viuvo">Viúvo</option>
+      </select>
+    </div> 
+  
+    <div class="btn-group">
+      <button type="button" id="clearBtn">Limpar Dados</button>
+      <button type="submit">Enviar Dados</button>
+    </div>
+  </form>
+
+  <script>
+    document.getElementById("clearBtn").addEventListener("click", function() {
+      document.getElementById("myForm").reset();
+    });
+  </script>
+</body>
+</html>
+
+
+
+
+
+
