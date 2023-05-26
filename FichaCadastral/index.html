@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerenciador Crud</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    form {
+      margin-bottom: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      padding: 8px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .edit-btn,
+    .delete-btn {
+      padding: 4px 8px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .edit-btn {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    .delete-btn {
+      background-color: #f44336;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Gerenciador de Usuários</h1>
+
+  <form id="user-form">
+    <label for="name">Nome:</label>
+    <input type="text" id="name" required><br>
+
+    <label for="age">Idade:</label>
+    <input type="number" id="age" required><br>
+
+    <label for="address">Endereço:</label>
+    <input type="text" id="address" required><br>
+
+    <label for="email">E-mail:</label>
+    <input type="email" id="email" required><br>
+
+    <button type="submit">Adicionar</button>
+  </form>
+
+  <table id="user-table">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Idade</th>
+        <th>Endereço</th>
+        <th>E-mail</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script>
+    // Array para armazenar os usuários
+    var usuarios = [];
+
+    // Função para adicionar um usuário
+    function adicionarUsuario() {
+      var nome = document.getElementById("name").value;
+      var idade = document.getElementById("age").value;
+      var endereco = document.getElementById("address").value;
+      var email = document.getElementById("email").value;
+
+      var usuario = {
+        nome: nome,
+        idade: idade,
+        endereco: endereco,
+        email: email
+      };
+
+      usuarios.push(usuario);
+
+      atualizarTabela();
+      limparFormulario();
+    }
+
+    // Função para editar um usuário
+    function editarUsuario(index) {
+      var usuario = usuarios[index];
+
+      document.getElementById("name").value = usuario.nome;
+      document.getElementById("age").value = usuario.idade;
+      document.getElementById("address").value = usuario.endereco;
+      document.getElementById("email").value = usuario.email;
+
+      // Removendo o usuário da tabela para edição
+      usuarios.splice(index, 1);
+
+      atualizarTabela();
+    }
+
+    // Função para remover um usuário
+    function removerUsuario(index) {
+      usuarios.splice(index, 1);
+
+      atualizarTabela();
+    }
+
+    // Função para atualizar a tabela
+    function atualizarTabela() {
+      var tabela = document.getElementById("user-table");
+      var tbody = tabela.getElementsByTagName("tbody")[0];
+
+      // Limpar a tabela
+      tbody.innerHTML = "";
+
+      // Preencher a tabela com os usuários
+      usuarios.forEach(function (usuario, index) {
+        var row = tbody.insertRow();
+        var nomeCell = row.insertCell(0);
+        var idadeCell = row.insertCell(1);
+        var enderecoCell = row.insertCell(2);
+        var emailCell = row.insertCell(3);
+        var acoesCell = row.insertCell(4);
+
+        nomeCell.textContent = usuario.nome;
+        idadeCell.textContent = usuario.idade;
+        enderecoCell.textContent = usuario.endereco;
+        emailCell.textContent = usuario.email;
+
+        var editButton = document.createElement("button");
+        editButton.textContent = "Editar";
+        editButton.classList.add("edit-btn");
+        editButton.addEventListener("click", function () {
+          editarUsuario(index);
+        });
+        acoesCell.appendChild(editButton);
+
+        var deleteButton = document.createElement("button");
+        deleteButton.textContent = "Remover";
+        deleteButton.classList.add("delete-btn");
+        deleteButton.addEventListener("click", function () {
+          removerUsuario(index);
+        });
+        acoesCell.appendChild(deleteButton);
+      });
+    }
+
+    // Função para limpar o formulário
+    function limparFormulario() {
+      document.getElementById("name").value = "";
+      document.getElementById("age").value = "";
+      document.getElementById("address").value = "";
+      document.getElementById("email").value = "";
+    }
+
+    // Adicionando evento de submit ao formulário
+    document.getElementById("user-form").addEventListener("submit", function (event) {
+      event.preventDefault();
+      adicionarUsuario();
+    });
+  </script>
+</body>
+
+</html>
